@@ -10,3 +10,11 @@ svg {
 path, line {
     stroke: #777;
 }
+
+.sliderDiv {
+    margin: 10px;
+}
+
+.sliderDiv > input {
+    width: 50%;
+}

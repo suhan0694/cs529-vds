@@ -19,6 +19,8 @@ const ParticleSystem = function() {
     // bounds of the data
     const bounds = {};
 
+    let plane;
+
     // create the containment box.
     // This cylinder is only to guide development.
     // TODO: Remove after the data has been rendered
@@ -38,11 +40,24 @@ const ParticleSystem = function() {
     };
 
     self.drawRectanglePlane = function(){
+        const slider = document.getElementById("zSlider");
+        const valueOutput = document.getElementById("zValue");
+        const sliderRange = d3.scaleLinear()
+                            .domain([0,100])
+                            .range([-5,5])
+        
+        slider.onchange = function(){
+            const value = sliderRange(this.value).toFixed(2);
+            valueOutput.innerHTML = value;
+            plane.position.z = value;
+        }
+
         const width = (bounds.maxX - bounds.minX) + 1;
         const height = (bounds.maxY - bounds.minY) + 1;
         const material = new THREE.MeshBasicMaterial( {color: 0xffffff, side: THREE.DoubleSide, transparent: true, opacity: 0.5} );
         const geometry = new THREE.PlaneGeometry(width,height,2);
-        const plane = new THREE.Mesh(geometry, material);
+        plane = new THREE.Mesh(geometry, material);
+        plane.translateY(5);
         sceneObject.add(plane);
     }
 
@@ -71,7 +86,7 @@ const ParticleSystem = function() {
         let particlePos;
 
         for (const particle of data){
-            particlePos = new THREE.Vector3(particle.X, particle.Y, particle.Z)
+            particlePos = new THREE.Vector3(particle.X, particle.Z, particle.Y)
             particles.vertices.push(particlePos)
             let particleColor = new THREE.Color(particleColors(particle.concentration))
             particles.colors.push(particleColor)
