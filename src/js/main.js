@@ -1,10 +1,10 @@
 "use strict";
-
+import Scene from "./scene.js";
+import ParticleSystem from "./particleSystem.js";
 /* Get or create the application global variable */
 var App = App || {};
 
 /* IIFE to initialize the main entry of the application*/
-(function() {
 
     // setup the pointer to the scope 'this' variable
     var self = this;
@@ -27,4 +27,4 @@ var App = App || {};
 
     };
 
-}) ();
+export default App;
