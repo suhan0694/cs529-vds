@@ -1,53 +1,61 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset=utf-8>
+    <head>
+        <meta charset="utf-8" />
 
-    <title>Assignment 3 -- three.js Robot</title>
+        <title>Assignment 3 -- three.js Robot</title>
 
-    <!-- CSS Libraries -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <!-- CSS Source -->
-    <link rel="stylesheet" href="./src/css/main.css" />
+        <!-- CSS Libraries -->
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        />
+        <!-- CSS Source -->
+        <link rel="stylesheet" href="./src/css/main.css" />
 
-    <!-- JS Libraries -->
-    <script   src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <!-- <script src="lib/js/three.min.js"></script> -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.6/d3.min.js"></script> -->
+        <!-- JS Libraries -->
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <!-- <script src="lib/js/three.min.js"></script> -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.6/d3.min.js"></script> -->
 
-    <!-- JS Source -->
-    <script type="module" src="./src/js/scene.js"></script>
-    <script type="module" src="./src/js/particleSystem.js"></script>
-    <script type="module "src="./src/js/main.js"></script>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-    <script type="module">
-        import App from "./src/js/main.js";
+        <!-- JS Source -->
+        <script type="module" src="./src/js/scene.js"></script>
+        <script type="module" src="./src/js/particleSystem.js"></script>
+        <script type="module " src="./src/js/main.js"></script>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+        <script type="module">
+            import App from './src/js/main.js'
 
-        function init(){
-            App.start();
-        } 
+            function init() {
+                App.start()
+            }
 
-        window.addEventListener('load', init);
-    </script>
+            window.addEventListener('load', init)
+        </script>
+    </head>
 
-</head>
-
-<body >
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="particleDiv col-md-6">
-                <div id="scene"></div>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="particleDiv col-md-6">
+                    <div id="scene"></div>
+                </div>
+                <div class="col-md-5">
+                    <div id="d3_scatter"></div>
+                    <div class="legendDiv" id="d3_legend"></div>
+                </div>
             </div>
-            <div class="sliderDiv col-md-5">
-                <p>Z Position</p>
-                <input type="range" min="1" max="100" value="50" id="zSlider" ">
-                <p>Value :<span id="zValue"> 0</span></p>
+            <div class="row">
+                <div class="sliderDiv col-md-6">
+                    <p>Z Position</p>
+                    <input type="range" min="1" max="100" value="50"
+                    id="zSlider" ">
+                    <p>Value :<span id="zValue"> 0</span></p>
+                </div>
+                <div
             </div>
         </div>
-    </div>
-
-</body>
+    </body>
 </html>
